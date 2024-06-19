@@ -423,7 +423,26 @@ int main()
      amount = p(1+r/100)t
    b.compound interest = amount-p
 
-ans>
+ans>#include <stdio.h> 
+#include<math.h>
+int main() { 
+
+  double principal = 10000; // principal amount 
+
+  double rate = 5; //annual rate of interest 
+
+  double time = 2; // time 
+
+  // Calculating compound Interest 
+
+    double Amount = principal * (pow((1 + rate / 100), time)); 
+
+    double CI = Amount - principal; 
+
+    printf("Compound Interest is : %lf",CI); 
+
+    return 0; 
+} 
 
 23.wap to calculate swap 2 number with using of multiplication and division
 
@@ -888,11 +907,50 @@ int main()
 
 12.wap to find maximum numbers among 3 number using ternary operator
 
-ans>
+ans>#include<stdio.h>
+int main()
+{
+	int a, b, c, larg;
+	printf("Enter first number: ");
+	scanf("%d", &a);
+	printf("Enter second number: ");
+	scanf("%d", &b);
+	printf("Enter third number: ");
+	scanf("%d", &c);
+	larg = (a>b)?((a>c)?a:c):((b>c)?b:c);
+	printf("Largest number is: %d", larg);
+}
 
 13.wap to find minimum numbers among 3 number using ternary operator
 
-ans>
+ans>#include<stdio.h>
+int main()
+{
+    int a, b, c, small;
+    printf("Enter three numbers : ");
+    scanf("%d%d%d", &a, &b, &c);
+    if(a<b)
+    {
+        if(b<c)
+            small = a;
+        else
+        {
+            if(a<c)
+                small = a;
+            else
+                small = c;
+        }
+    }
+    else
+    {
+        if(b<c)
+            small = b;
+        else
+            small = c;
+    }
+    printf("\nSmallest number is: %d", small);
+    return 0;
+}
 
 14.wap to find largest a three numbers.
 
@@ -915,7 +973,43 @@ int main()
 
 15.write a c program to determine elligibility for admission to a profestional course based on the following critaria:marks in maths>=65 and marks in phy>=55 and marks in chem>=50 and total in all three subject >=190 and total in math and phy>=140=============input the mark obtain in chemistry:51 input the mark obtain in mathematics::72 total mark of math phy and chem 188 total mark of math and phy:137 the candidate is not eligible.
 
-ans> 
+ans> #include <stdio.h>
+int main()
+{
+    int p, c, m, t, mp;
+
+    printf("Eligibility Criteria :\n");
+    printf("Marks in Maths >=65\n");
+    printf("and Marks in Phy >=55\n");
+    printf("and Marks in Chem>=50\n");
+    printf("and Total in all three subject >=190\n");
+    printf("or Total in Maths and Physics >=140\n");
+    printf("-------------------------------------\n");
+
+    printf("Input the marks obtained in Physics :");
+    scanf("%d", &p);
+    printf("Input the marks obtained in Chemistry :");
+    scanf("%d", &c);
+    printf("Input the marks obtained in Mathematics :");
+    scanf("%d", &m);
+
+    printf("Total marks of Maths, Physics and Chemistry : %d\n", m + p + c);
+    printf("Total marks of Maths and Physics : %d\n", m + p);   
+
+    if (m >= 65)
+        if (p >= 55)
+            if (c >= 50)
+                if ((m + p + c) >= 190 || (m + p) >= 140)
+                    printf("The candidate is eligible for admission.\n");
+                else
+                    printf("The candidate is not eligible.\n");
+            else
+                printf("The candidate is not eligible.\n");
+        else
+            printf("The candidate is not eligible.\n");
+    else
+        printf("The candidate is not eligible.\n");
+}
 
 16.write a c program to read temperature in centigrade and diplay a suitable message according to the temerature state below
    temp<0 then freezing whether
@@ -1055,7 +1149,49 @@ main()
 30. If bill exceeds Rs. 800 then a surcharge of 18% will be charged and the
 minimum bill should be of Rs. 256/-
 
-ans>
+ans>#include <stdio.h>
+#include <string.h>  
+
+int main()
+{
+    int custid, conu;
+    float chg, surchg = 0, gramt, netamt;
+    char connm[25];
+
+    printf("Input Customer ID :");  
+    scanf("%d", &custid); 
+    printf("Input the name of the customer :"); 
+    scanf("%s", connm);  
+    printf("Input the unit consumed by the customer : "); 
+    scanf("%d", &conu); 
+
+    if (conu < 200)
+        chg = 1.20;  
+    else if (conu >= 200 && conu < 400)
+        chg = 1.50;  
+    else if (conu >= 400 && conu < 600)
+        chg = 1.80; 
+    else
+        chg = 2.00; 
+
+    gramt = conu * chg; 
+
+    if (gramt > 300)
+        surchg = gramt * 15 / 100.0; 
+
+    netamt = gramt + surchg;  
+
+    if (netamt < 100)
+        netamt = 100;
+
+    printf("\nElectricity Bill\n");
+    printf("Customer IDNO                       :%d\n", custid);
+    printf("Customer Name                       :%s\n", connm);
+    printf("unit Consumed                       :%d\n", conu);
+    printf("Amount Charges @Rs. %4.2f  per unit :%8.2f\n", chg, gramt);
+    printf("Surchage Amount                     :%8.2f\n", surchg);
+    printf("Net Amount Paid By the Customer     :%8.2f\n", netamt);
+}
 
 31. Write a program in C to read any Month Number in integer and display the
 number of days for this month.
@@ -1511,7 +1647,34 @@ main()
 
 6. WAP to print Fibonacci series up to given numbers
 
-ans>
+ans>#include <stdio.h>
+int main() {
+
+  int i, n;
+
+  // initialize first and second terms
+  int t1 = 0, t2 = 1;
+
+  // initialize the next term (3rd term)
+  int nextTerm = t1 + t2;
+
+  // get no. of terms from user
+  printf("Enter the number of terms: ");
+  scanf("%d", &n);
+
+  // print the first two terms t1 and t2
+  printf("Fibonacci Series: %d, %d, ", t1, t2);
+
+  // print 3rd to nth terms
+  for (i = 3; i <= n; ++i) {
+    printf("%d, ", nextTerm);
+    t1 = t2;
+    t2 = nextTerm;
+    nextTerm = t1 + t2;
+  }
+
+  return 0;
+}
 
 7. WAP to print number in reverse order e.g.: number = 64728 ---> reverse =
 82746
@@ -1574,15 +1737,76 @@ int main()
 10.Write a program you have to make a summation of first and last Digit. (E.g.,
 1234 Ans: -5)
 
-ans>
+ans>#include <stdio.h>
+
+int main()
+{
+    int num, sum=0, firstDigit, lastDigit;
+
+    /* Input a number from user */
+    printf("Enter any number to find sum of first and last digit: ");
+    scanf("%d", &num);
+    
+    /* Find last digit to sum */
+    lastDigit = num % 10;
+    
+
+    /* Copy num to first digit */
+    firstDigit = num;
+
+    /* Find the first digit by dividing num by 10 until first digit is left */
+    while(num >= 10)
+    {
+        num = num / 10;
+    }
+    firstDigit = num;
+
+
+    /* Find sum of first and last digit*/
+    sum = firstDigit + lastDigit; 
+
+    printf("Sum of first and last digit = %d", sum);
+
+    return 0;
+}
 
 11. Accept 5 names from user at run time.
 
-ans>
+ans>#include <stdio.h>
+
+int main() 
+{
+    int i,n;
+    printf("Enter the number of times the name has to print: \n");
+    scanf("%d",&n);
+    for (i=1;i<=n;i++)
+        {printf("B.krushit\n");}
+    return 0;
+}
 
 12. Program of Armstrong Number in C Using For Loop & While Loop
 
-ans>
+ans>#include <stdio.h>
+int main() 
+{
+    int num, originalNum, remainder, result = 0;
+    printf("Enter a three-digit integer: ");
+    scanf("%d", &num);
+    originalNum = num;
+
+    while (originalNum != 0) 
+    {
+        remainder = originalNum % 10;
+        
+       result += remainder * remainder * remainder;
+    }
+    if (result == num)
+        printf("%d is an Armstrong number.", num);
+    else
+        printf("%d is not an Armstrong number.", num);
+
+    return 0;
+}
 
 13.calculate the Factorial of a Given Number using while loop
 
@@ -1602,7 +1826,24 @@ main()
 
 14.Accept 5 numbers from user and find those numbers factorials
 
-ans>
+ans>#include <stdio.h>
+int main() {
+    int n, i;
+    unsigned long long fact = 1;
+    printf("Enter an integer: ");
+    scanf("%d", &n);
+
+    if (n < 0)
+        printf("Error! Factorial of a negative number doesn't exist.");
+    else {
+        for (i = 1; i <= n; ++i) 
+        {
+            fact *= i;
+        }
+        printf("Factorial of %d = %llu", n, fact);
+    }
+    return 0;
+}
 
 15.Calculate sum of 10 numbers using of while loop
 
@@ -1774,7 +2015,27 @@ int main()
 ..............
 41 42 43 44 45 46 47 48 49 50
 
-ans>
+ans>#include <stdio.h>
+int main()
+{
+    int rows, cols, i, j, k;
+
+    printf("Enter number of rows: ");
+    scanf("%d", &rows);
+    printf("Enter number of columns: ");
+    scanf("%d", &cols);
+
+    k = 1;
+    for(i=1; i<=rows; i++)
+    {
+        for(j=1; j<=cols; j++, k++)
+        {
+            printf("%-3d", k);
+        }
+        printf("\n");
+    }
+    return 0;
+}
 
 22. Accept 3 numbers from user using while loop and check each numbers
 palindrome
@@ -1850,19 +2111,101 @@ int main()
 
 25. (1*1) + (2*2) + (3*3) + (4*4) + (5*5) + ... + (n*n)
 
-ans>
+ans>#include <stdio.h>
+int Series(int n) 
+{ 
+    int i; 
+
+    int sums = 0; 
+
+    for (i = 1; i <= n; i++) 
+
+        sums += (i * i); 
+
+    return sums; 
+} 
+int main() 
+{ 
+    int n = 3; 
+
+    int res = Series(n); 
+
+    printf("%d", res); 
+} 
 
 26. (1)+ (1+2) + (1+2+3) + (1+2+3+4) + ... + (1+2+3+4+...+n)
 
-ans>
+ans>#include <stdio.h>
+int series_sum(int n)
+{
+    return ((n * (n + 1) * (2 * n + 4)) / 12);
+}
+int main()
+{
+    int n;
+    
+    printf("Series:1+(1+2+)+(1+2+3)+...+(1+2+3+...+n)\n");
+    printf("Want some up to N terms?\nEnter the N term:");
+    scanf("%d", &n);
+
+    printf("Sum is:%d",series_sum(n));
+
+    return 0;
+}
 
 27. 1/2 - 2/3 + 3/4 - 4/5 + 5/6 .......... n
 
-ans>
+ans>#include<stdio.h>
+int main()
+{
+    int num = 1, count, limit;
+    float sum = 0.0, fact;
+
+    printf("Enter the number of terms\n");
+    scanf("%d", &limit);
+
+    while(num <= limit)
+    {
+        fact = 1;
+        for(count = 1; count <= num; count++)
+        {
+            fact = fact * count;
+        }
+        sum = sum + (num / fact);
+
+        num++;
+    }
+    printf("Sum of %d terms of series is %f\n", limit, sum);
+
+    return 0;
+}
 
 28. 1 2 3 6 9 18 27 54...
 
-ans>
+ans>#include<stdio.h>
+
+int main()
+{
+  int a=1,b=2,i,n;
+  scanf("%d",&n);
+  printf("%d %d ",a, b);
+    for(i=3;i<=n;i++)
+   {
+      if(i%2==1)
+     {
+          a=a*3;
+          printf("%d",a);
+          printf(" ");
+     }
+    else
+    {
+         b=b*3;
+         printf("%d",b);
+         printf(" ");
+    }
+ }
+ return(0);
+}
 
 Topics Covered
 Function
@@ -1871,6 +2214,35 @@ Array
 1. Write a program to find out the max number from given array using function
 
 ans>
+#include <stdio.h>
+int largest(int arr[], int n)
+{
+
+    int i;
+
+    int max = arr[0];
+ 
+    for (i = 1; i < n; i++)
+
+        if (arr[i] > max)
+
+            max = arr[i];
+ 
+    return max;
+}
+
+int main()
+{
+    int arr[] = { 10, 324, 45, 90, 9808 };
+
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    // Function call
+
+    printf("Largest in given array is %d", largest(arr, n));
+
+    return 0;
+}
 
 2. WAP of Addition, Subtraction, Multiplication and Division using Switch
 case.(Must Be Menu Driven)
