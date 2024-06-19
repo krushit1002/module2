@@ -2461,12 +2461,67 @@ int main()
 8. WAP to reverse a string and check that the string is palindrome or not
 Write a program of structure employee that provides the following
 a. information -print and display empno, empname, address
-andage
+and age
 b. Write a program of structure for five employee that
 provides the following information -print and display
-empno, empname, address andage
+empno, empname, address and age
 
 ans>
+a)#include<stdio.h>
+struct emp{
+int id;
+char name[10];
+char add[10];
+int age;
+}e1;
+int main()
+{
+   printf("enter your id \n");
+   scanf("%d",&e1.id);
+   printf("enter your name \n");
+   scanf("%s",&e1.name);
+   printf("enter your address \n");
+   scanf("%s",&e1.add);
+   printf("enter your age \n");
+   scanf("%d",&e1.age);
+
+   printf("my id is %d\n",e1.id);
+   printf("my name is %s\n",e1.name);
+   printf("my address is %s\n",e1.add);
+   printf("my age is %d\n",e1.age);
+}
+b)#include<stdio.h>
+struct emp;
+int id;
+char name[10];
+char add[10];
+int age;
+};
+int main()
+{
+   struct emp arr[2];
+   int i;
+
+   printf("enter employee details \n");
+   for(i=0;i<=1;i++)
+   {
+      printf("enter emp id \n");
+      scanf("%d",&arr[i].id);
+      printf("enter emp name \n");
+      scanf("%s",&arr[i].name);
+      printf("enter your address \n");
+      scanf("%s",&arr[i].add);
+      printf("enter emp age \n");
+      scamf("%d",&arr[i].age);
+  }
+  printf("\n\n---displaying employee details---\n\n");
+  {
+     printf("employee id is %d\n",arr[i].id);
+     printf("employee name is %s\n",arr[i].name);
+     printf("employee add is %s\n",arr[i].add);
+     printf("employee age is %d\n",arr[i].age);
+  }
+}
 
 9. WAP to show difference between Structure and Union.
 
