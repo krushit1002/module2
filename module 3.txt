@@ -2470,11 +2470,43 @@ ans>
 
 9. WAP to show difference between Structure and Union.
 
-ans>
+ans>Structure
+>To define a structure, we utilise the struct statement
+>Every member has their own memory place
+>A change in the value of one data member has no effect on the structure’s other data members
+>Multiple members can be initialised at the same time
+>Multiple values of various members can be stored in a structure
+>The overall size of a structure is the sum of the sizes of all data members
+>At any moment, users can access or recover any member
+
+union
+>To define a union, we use the union keyword
+>A memory location is shared by all data members
+>A change in one data member’s value has an impact on the value of other data members
+>Only the first member can be initialised at a time
+>For all of its members, a union stores one value at a time
+>The biggest data member determines the total size of a union
+>Only one member can be accessed or retrieved at a time
 
 10. WAP to perform Palindrome number using for loop and function
 
-ans>
+ans>#include <stdio.h>
+int main(){
+    int num, r, sum = 0, t;
+
+    printf("Input a number: ");
+    scanf("%d", &num);
+
+    for(t = num; num != 0; num = num / 10)
+   {
+         r = num % 10;
+         sum = sum * 10 + r;
+    }
+    if(t == sum)
+         printf("%d is a palindrome number.\n", t);
+    else
+         printf("%d is not a palindrome number.\n", t);
+}
 
 11. WAP to accept 5 numbers from user and display in reverse order using for
 loop and array
@@ -2726,7 +2758,22 @@ int main()
 
 17.WAP to show difference between Structure and Union.
 
-ans>
+ans>structure
+>To define a structure, we utilise the struct statement
+>Every member has their own memory place
+>A change in the value of one data member has no effect on the structure’s other data members
+>Multiple members can be initialised at the same time
+>Multiple values of various members can be stored in a structure
+>The overall size of a structure is the sum of the sizes of all data members
+>At any moment, users can access or recover any member
+union
+>To define a union, we use the union keyword
+>A memory location is shared by all data members
+>A change in one data member’s value has an impact on the value of other data members
+>Only the first member can be initialised at a time
+>For all of its members, a union stores one value at a time
+>The biggest data member determines the total size of a union
+>Only one member can be accessed or retrieved at a time
 
 Topics Covered
 String
@@ -2793,12 +2840,57 @@ int main()
 
 4. Write a program in C to count the total number of words in a string.
 
-ans>
+ans>#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char s[200];
+    int count = 0, i;
+ 
+    printf("Enter the string:\n");
+    scanf("%s", s);
+    for (i = 0;s[i] != '\0';i++)
+    {
+        if (s[i] == ' ' && s[i+1] != ' ')
+        count++;    
+    }
+    printf("Number of words in given string are: %d\n", count + 1);
+}
 
 5. Write a program in C to compare two strings without using string library
 functions.
 
-ans>
+ans>#include <stdio.h>
+int main() 
+{
+
+    char str1[100], str2[100];
+    int i = 0;
+
+    printf("Enter the first string: ");
+    scanf("%s", str1);
+
+    printf("Enter the second string: ");
+    scanf("%s", str2);
+
+    while (str1[i] == str2[i] && str1[i] != '\0') 
+    {
+        i++;
+    }
+    if (str1[i] > str2[i]) 
+    {
+        printf("String 1 comes after String 2.\n");
+    } 
+    else if (str1[i] < str2[i]) 
+    {
+        printf("String 1 comes before String 2.\n");
+    } 
+    else 
+    {
+        printf("Both strings are the same.\n");
+    }
+    return 0;
+}
 
 6. Write a program in C to count the total number of alphabets, digits and special
 characters in a string.
@@ -2866,11 +2958,91 @@ int main()
 8. Write a program in C to count the total number of vowels or consonants in a
 string.
 
-ans>
+ans>#include<stdio.h>
+int main() 
+{
+  char line[150];
+  int vowels, consonant, digit,soace;
+  vowels = consonant = digit = space = 0;
+  
+  printf("Enter a line of string: ");
+  fgets(line, sizeof(line), stdin);
+
+  for (int i = 0; line[i] != '\0'; ++i) 
+   {
+    line[i] = tolower(line[i]);
+
+    if (line[i] == 'a' || line[i] == 'e' || line[i] == 'i' ||
+        line[i] == 'o' || line[i] == 'u') 
+    {
+      ++vowels;
+    }
+    else if ((line[i] >= 'a' && line[i] <= 'z')) 
+    {
+      ++consonant;
+    }
+    else if (line[i] >= '0' && line[i] <= '9') 
+    {
+      ++digit;
+    }
+    else if (line[i] == ' ') 
+    {
+      ++space;
+    }
+  }
+  printf("Vowels: %d", vowels);
+  printf("\nConsonants: %d", consonant);
+  printf("\nDigits: %d", digit);
+  printf("\nWhite spaces: %d", space);
+
+  return 0;
+}
 
 9. Write a program in C to find the maximum number of characters in a string.
 
-ans>
+ans>#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#define str_size 100
+#define chr_no 255   
+
+int main() {
+    char str[str_size]; 
+    int ch_fre[chr_no];  
+    int i = 0, max;      
+    int ascii;           
+
+    printf("\n\nFind maximum occurring character in a string :\n");
+    printf("--------------------------------------------------\n");
+    printf("Input the string : ");
+    fgets(str, sizeof str, stdin);
+
+    for (i = 0; i < chr_no; i++)
+        ch_fre[i] = 0;
+    }
+    i = 0;
+    while (str[i] != '\0') 
+    {
+        ascii = (int)str[i];
+        ch_fre[ascii] += 1;
+        i++;
+    }
+    max = 0;
+    for (i = 0; i < chr_no; i++) 
+       {
+        if (i != 32) 
+           {
+            if (ch_fre[i] > ch_fre[max]) 
+            {
+                max = i;
+            }
+        }
+    }
+    printf("The Highest frequency of character '%c' appears number of times : %d \n\n", max, ch_fre[max]);
+	
+	return 0;
+}
 
 10. Write a program in C to extract a substring from a given string
 
