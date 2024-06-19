@@ -1953,6 +1953,23 @@ int main()
 		printf("\n");
 	}
 }
+2)#include<stdio.h>
+int main() 
+{
+  int i, j;
+  char alphabet='A';
+  for(i=1; i<=5; i++)
+  {
+    for (j=1; j<=i; j++)
+    {
+      printf("%c ", alphabet);
+      alphabet++;
+    }
+    printf("\n");             
+  }
+  return 0;
+}
+
 3)#include<stdio.h>
 int main()
 {
@@ -1971,6 +1988,29 @@ int main()
 		printf("\n");
 	}
 }
+4)#include<stdio.h>
+int main()
+{
+   int i, rows = 5;
+
+   for (int i = 0; i <= rows - 1; i++) 
+   {
+   for (int j = 0; j <= i; j++) 
+   {
+      printf("*" " ");
+}
+      printf(" \n");
+}
+   for (int i = rows - 1; i >= 0; i--) 
+ {
+   for (int j = 0; j <= i - 1; j++) 
+   {
+      printf("*" " ");
+   }
+            printf("\n");
+ }
+}
+
 5)#include<stdio.h>
 int main()
 {
@@ -2006,6 +2046,46 @@ int main()
 		}
 		printf("\n");
 	}
+}
+7)#include <stdio.h>
+#define SIZE 10
+int main()
+{
+    int i, j, N;
+    int board[SIZE][SIZE];
+    int left, top;
+
+    left = 0;
+    top  = SIZE - 1;
+    N    = 1;
+
+    for(i=1; i<=SIZE/2; i++, left++, top--)
+    {
+        for(j=left; j<=top; j++, N++)
+        {
+            board[left][j] = N;
+        }
+        for(j=left+1; j<=top; j++, N++)
+        {
+            board[j][top] = N;
+        for(j=top-1; j>=left; j--, N++)
+        {
+            board[top][j] = N;
+        }
+        for(j=top-1; j>=left+1; j--, N++)
+        {
+            board[j][left] = N;
+        }
+    }
+    for(i=0; i<SIZE; i++)
+    {
+        for(j=0; j<SIZE; j++)
+        {
+            printf("%-5d", board[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
 }
 
 20. WAP program to print below output using for loop
