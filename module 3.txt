@@ -589,7 +589,30 @@ int main()
 
 30.wap to convert years into days and days into years
 
-ans>
+ans>#include<stdio.h>
+int main()
+{
+   int days,month;
+   
+   printf("enter month: \n");
+   scanf("%d",&month);
+
+   days = month*30;
+
+   printf("days:%d",days);
+}
+#include<stdio.h>
+int main()
+{
+    int days,year;
+
+    printf("enter year:\n");
+    scanf("%d",&year);
+
+    days = year*365;
+
+    printf("days:%d",days);
+}
 
 31.convert kilometer into meter
 
